@@ -7,6 +7,6 @@ class HelloTest {
 
     @Test
     void sayHello() {
-        Assertions.assertEquals("Hello World", new Hello().sayHello());
+        assertEquals("Hello World", new Hello().sayHello());
     }
 }
