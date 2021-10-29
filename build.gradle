@@ -25,7 +25,10 @@ dependencies {
 }
 
 pitest {
-    verbose = true
+    testPlugin = 'junit5'
+    junit5PluginVersion = '0.14'
+    threads = 4
+    outputFormats= ["XML", "HTML"]
     mutationThreshold.set(80)
     testStrengthThreshold.set(85)
     coverageThreshold.set(95)
