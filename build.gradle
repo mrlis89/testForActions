@@ -1,5 +1,15 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.7.0'
+    }
+}
+
 plugins {
     id 'java'
+    id 'info.solidsoft.pitest' version '1.7.0'
 }
 
 group 'org.example'
@@ -12,6 +22,13 @@ repositories {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+pitest {
+    verbose = true
+    mutationThreshold.set(80)
+    testStrengthThreshold.set(85)
+    coverageThreshold.set(95)
 }
 
 test {
