@@ -7,12 +7,24 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    maven {
+        url = "https://maven.pkg.github.com/mrlis89/Interpreter"
+        credentials {
+            username = 'mrlis89'
+            password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+        }
+    }
+
 }
 
+
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    testImplementation 'org.assertj:assertj-core:3.21.0'
+    implementation 'com.arnava:interpreter:1.1'
 }
+
 
 test {
     useJUnitPlatform()
