@@ -1,15 +1,5 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.7.0'
-    }
-}
-
 plugins {
     id 'java'
-    id 'info.solidsoft.pitest' version '1.7.0'
 }
 
 group 'org.example'
@@ -17,22 +7,18 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    maven {
+        url = "https://maven.pkg.github.com/mrlis89/Interpreter"
+    }
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    testImplementation 'org.assertj:assertj-core:3.21.0'
+    implementation 'com.arnava:interpreter:1.1'
 }
 
-pitest {
-    testPlugin = 'junit5'
-    junit5PluginVersion = '0.14'
-    threads = 4
-    outputFormats= ["XML", "HTML"]
-    mutationThreshold.set(80)
-    testStrengthThreshold.set(85)
-    coverageThreshold.set(95)
-}
 
 test {
     useJUnitPlatform()
