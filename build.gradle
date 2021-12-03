@@ -11,7 +11,7 @@ repositories {
         url = "https://maven.pkg.github.com/mrlis89/Interpreter"
         credentials {
             username = 'mrlis89'
-            password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
+            password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
         }
     }
 
