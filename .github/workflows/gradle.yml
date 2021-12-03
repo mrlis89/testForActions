@@ -26,5 +26,7 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
+      env:
+        TOKEN: ${{ secrets.TOKEN }}
     - name: Run Mutation tests
       run: ./gradlew pitest
